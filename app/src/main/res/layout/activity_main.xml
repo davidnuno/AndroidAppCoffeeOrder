@@ -73,10 +73,4 @@
         android:onClick="submitOrder"
         android:text="order" />
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:srcCompat="?android:attr/textColorSearchUrl"
-        android:id="@+id/imageView" />
-
 </LinearLayout>
