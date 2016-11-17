@@ -9,7 +9,9 @@ package com.example.android.justjava;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import java.text.NumberFormat;
@@ -34,27 +36,33 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        displayMessage(createOrderSummary());
-        calculatePrice(quantity);
+        CheckBox whippedCreamCheckbox = (CheckBox) findViewById(R.id.whipped_cream_checkbox);
+
+        boolean hasWhippedCream = whippedCreamCheckbox.isChecked();
+
+        String priceMessage = createOrderSummary(price, hasWhippedCream);
+
+        displayMessage(priceMessage);
+        calculatePrice();
     }
     /**
      * Calculates the price of the order.
      *
-     * @param quantity is the number of cups of coffee ordered
-     *
      * @return the total price.
      */
-    private int calculatePrice(int quantity) {
+    private int calculatePrice() {
 
         return quantity * price;
     }
     /**
      * This method displays the summary of the order.
      * */
-    private String createOrderSummary() {
+    private String createOrderSummary(int price, boolean addWhippedCream) {
+
         String priceMessage = "Name: David Nuno\n";
 
-        priceMessage += "Quantity: " + quantity + "\nTotal: $" + calculatePrice(quantity) + "\nThank you!";
+        priceMessage += "add whipped cream?: " + addWhippedCream;
+        priceMessage += "Quantity: " + quantity + "\nTotal: $" + price + "\nThank you!";
 
         return priceMessage;
     }
