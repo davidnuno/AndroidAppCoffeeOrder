@@ -15,6 +15,14 @@
         android:paddingTop="@dimen/activity_vertical_margin"
         android:weightSum="1">
 
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapWords"
+            android:hint="Name"
+            android:ems="10"
+            android:id="@+id/name_field" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -23,6 +31,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
             android:text="Toppings"
             android:textAllCaps="true" />
@@ -34,19 +43,17 @@
             android:layout_marginBottom="16dp"
             android:checked="false"
             android:fontFamily="sans-serif"
-            android:onClick="addWhippedCream"
             android:paddingLeft="24dp"
             android:text="Whipped Cream"
             android:textSize="16sp" />
 
         <CheckBox
-            android:id="@+id/chocolate"
+            android:id="@+id/chocolate_checkbox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:checked="false"
             android:fontFamily="sans-serif"
-            android:onClick="addWhippedCream"
             android:paddingLeft="24dp"
             android:text="Chocolate"
             android:textSize="16sp" />
@@ -75,7 +82,7 @@
                 android:id="@+id/quantity_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0"
+                android:text="2"
                 android:textColor="#000000"
                 android:textSize="16dp" />
 
