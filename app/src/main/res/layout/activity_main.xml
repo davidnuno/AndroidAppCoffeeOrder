@@ -16,12 +16,12 @@
         android:weightSum="1">
 
         <EditText
+            android:id="@+id/name_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textCapWords"
-            android:hint="Name"
             android:ems="10"
-            android:id="@+id/name_field" />
+            android:hint="Name"
+            android:inputType="textCapWords" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -29,10 +29,9 @@
             android:orientation="vertical" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            style="@style/HeaderStyleText"
             android:layout_marginBottom="16dp"
+            android:layout_marginTop="16dp"
             android:text="Toppings"
             android:textAllCaps="true" />
 
@@ -59,8 +58,7 @@
             android:textSize="16sp" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/HeaderStyleText"
             android:layout_marginBottom="16dp"
             android:text="Quantity"
             android:textAllCaps="true" />
@@ -80,8 +78,7 @@
 
             <TextView
                 android:id="@+id/quantity_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/HeaderStyleText"
                 android:text="2"
                 android:textColor="#000000"
                 android:textSize="16dp" />
@@ -97,16 +94,14 @@
         </LinearLayout>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/HeaderStyleText"
             android:layout_marginBottom="16dp"
             android:text="Order Summary"
             android:textAllCaps="true" />
 
         <TextView
             android:id="@+id/order_summary_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/HeaderStyleText"
             android:layout_marginBottom="16dp"
             android:text="$0"
             android:textColor="#000000"

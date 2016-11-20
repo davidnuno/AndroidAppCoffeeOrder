@@ -11,23 +11,19 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.text.NumberFormat;
-
-import static android.R.attr.name;
-
 /**
  * This app displays an order form to order coffee.
  */
 public class MainActivity extends AppCompatActivity {
     /**
-     * The number of coffee cups. */
+     * The number of coffee cups.
+     */
     int quantity = 2;
 
     @Override
@@ -57,15 +53,7 @@ public class MainActivity extends AppCompatActivity {
         // Display the order summary on the screen
         String message = createOrderSummary(name, price, hasWhippedCream, hasChocolate);
 
-        Intent orderEmail = new Intent(Intent.ACTION_SENDTO);
-        orderEmail.setData(Uri.parse("mailto:")); // only email apps should handle this
-
-        orderEmail.putExtra(Intent.EXTRA_SUBJECT, "Coffee order for " + name);
-        orderEmail.putExtra(Intent.EXTRA_TEXT, message);
-        if (orderEmail.resolveActivity(getPackageManager()) != null) {
-            startActivity(orderEmail);
-        }
-        //displayMessage(message);
+        sendOrderEmail(name, message);
     }
     /**
      * Calculates the price of the order.
@@ -142,10 +130,17 @@ public class MainActivity extends AppCompatActivity {
         quantityTextView.setText("" + number);
     }
     /**
-     * This method displays the given text on the screen.
+     * This method opens the user default email app and sends the order summary.
      */
-/*    private void displayMessage(String message) {
-        TextView orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
-        orderSummaryTextView.setText(message);
-    }*/
+    private void sendOrderEmail(String theName, String theMessage) {
+        Intent orderEmail = new Intent(Intent.ACTION_SENDTO);
+        orderEmail.setData(Uri.parse("mailto:")); // only email apps should handle this
+
+        orderEmail.putExtra(Intent.EXTRA_SUBJECT, "Coffee order for " + theName);
+        orderEmail.putExtra(Intent.EXTRA_TEXT, theMessage);
+
+        if (orderEmail.resolveActivity(getPackageManager()) != null) {
+            startActivity(orderEmail);
+        }
+    }
 }
