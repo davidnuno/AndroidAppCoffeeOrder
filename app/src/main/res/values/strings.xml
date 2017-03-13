@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Coffee Order App</string>
+    <string name="activity_order">Your Order</string>
 </resources>
